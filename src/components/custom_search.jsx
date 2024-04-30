@@ -36,8 +36,8 @@ const StyledSearch = styled(Search)`
   }
   .ant-btn.css-dev-only-do-not-override-kghr11.ant-btn-default.ant-btn-icon-only.ant-input-search-button,
   :where(.css-kghr11).ant-input-search .ant-input-search-button {
-    width: 54px !important;
-    height: 54px !important;
+    padding: 10px;
+    box-sizing: content-box;
   }
 `;
 const SearchWrapper = styled.div`
