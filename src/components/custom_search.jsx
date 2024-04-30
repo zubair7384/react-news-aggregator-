@@ -34,10 +34,12 @@ const StyledSearch = styled(Search)`
       font-weight: 500;
     }
   }
-  .ant-btn.css-dev-only-do-not-override-kghr11.ant-btn-default.ant-btn-icon-only.ant-input-search-button,
-  :where(.css-kghr11).ant-input-search .ant-input-search-button {
-    padding: 10px;
-    box-sizing: content-box;
+  .ant-input-group-addon {
+    button {
+      padding: 10px;
+      box-sizing: content-box;
+      height: 52px !important;
+    }
   }
 `;
 const SearchWrapper = styled.div`
