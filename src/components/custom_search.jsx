@@ -27,7 +27,7 @@ export default CustomSearch;
 
 const StyledSearch = styled(Search)`
   input {
-    padding: 10px;
+    padding: 15px;
     &::placeholder {
       color: #0000009e;
       font-size: 18px;
@@ -35,8 +35,8 @@ const StyledSearch = styled(Search)`
     }
   }
   .ant-btn.css-dev-only-do-not-override-kghr11.ant-btn-default.ant-btn-icon-only.ant-input-search-button {
-    width: 44px;
-    height: 44px;
+    width: 54px !important;
+    height: 54px !important;
   }
 `;
 const SearchWrapper = styled.div`

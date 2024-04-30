@@ -94,7 +94,7 @@ const StyledLink = styled.li`
   }
 `;
 const SearchWrapper = styled.div`
-  width: 40%;
+  width: 45%;
   height: 450px;
   display: flex;
   flex-direction: column;
@@ -104,9 +104,9 @@ const SearchWrapper = styled.div`
 `;
 const MainTitle = styled.h1`
   width: 100%;
-  font-size: 40px;
+  font-size: 50px;
   color: #fff;
   font-weight: 500;
-  line-height: 40px;
+  line-height: 50px;
   margin-bottom: 1.5rem;
 `;
