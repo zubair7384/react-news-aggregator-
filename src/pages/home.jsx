@@ -1,9 +1,9 @@
 import React, { useEffect, useContext } from "react";
 import CustomTabs from "../components/custom_tabs";
-import FilterHeader from "../components/filter_header";
+// import FilterHeader from "../components/filter_header";
 import { useDispatch } from "react-redux";
 import { fetchArticles } from "../features/news_api_slice";
-import { fetchNewYorkTimesArticles } from "../features/new_york_times_slice";
+// import { fetchNewYorkTimesArticles } from "../features/new_york_times_slice";
 import styled from "styled-components";
 import { useLocation } from "react-router-dom";
 import ArticlesContext from "../contexts/articles_contexts";

@@ -75,8 +75,3 @@ const StyledGrid = styled.div`
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
 `;
-const GridTitle = styled.h2`
-  font-size: 25px;
-  font-weight: 500;
-  color: #000000a1;
-`;

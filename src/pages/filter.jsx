@@ -4,7 +4,7 @@ import FilterButtons from "../components/filter_buttons";
 import FilterHeader from "../components/filter_header";
 import { useDispatch } from "react-redux";
 import { fetchArticles } from "../features/news_api_slice";
-import { fetchNewYorkTimesArticles } from "../features/new_york_times_slice";
+// import { fetchNewYorkTimesArticles } from "../features/new_york_times_slice";
 import styled from "styled-components";
 import ArticlesContext from "../contexts/articles_contexts";
 
