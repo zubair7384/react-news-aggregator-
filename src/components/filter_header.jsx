@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { Select } from "antd";
+import ArticlesContext from "../contexts/articles_contexts";
 
 const FilterHeader = ({ filterButtonValue }) => {
+  const { setFilterButtonValue } = useContext(ArticlesContext);
+
   const handleApiChange = (value) => {
     console.log(`selected ${value}`);
   };
   const handleTypeChange = (value) => {
-    console.log(`selected ${value}`);
+    setFilterButtonValue(value);
   };
 
   return (
@@ -29,8 +32,8 @@ const FilterHeader = ({ filterButtonValue }) => {
           style={{ width: 120 }}
           onChange={handleTypeChange}
           options={[
-            { value: "popular", label: "Popular" },
-            { value: "newest", label: "Newest" },
+            { value: "Popular", label: "Popular" },
+            { value: "Newest", label: "Newest" },
           ]}
         />
       </div>
@@ -42,14 +45,29 @@ export default FilterHeader;
 
 const StyledFilterHeaderWrapper = styled.div`
   width: 100%;
-  margin-top: 2rem;
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+  @media (max-width: 768px) {
+    margin-top: 2rem;
+  }
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+  }
   h2 {
-    font-size: 30px;
-    font-weight: 500;
+    font-size: 45px;
+    font-weight: 600;
     margin-bottom: 0;
-    color: #000;
-    border-bottom: 2px solid #000;
-    line-height: 38px;
+    color: #2c343e;
+    fill: #2c343e;
+    border-bottom: 4px solid #2c343e;
+    line-height: 53px;
+    text-transform: capitalize;
+    @media (max-width: 768px) {
+      font-size: 28px;
+      line-height: 43px;
+    }
   }
   .buttons-wrapper {
     display: flex;

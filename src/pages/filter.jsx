@@ -4,12 +4,14 @@ import FilterButtons from "../components/filter_buttons";
 import FilterHeader from "../components/filter_header";
 import { useDispatch } from "react-redux";
 import { fetchArticles } from "../features/news_api_slice";
+import { fetchNewYorkTimesArticles } from "../features/new_york_times_slice";
 import styled from "styled-components";
 import ArticlesContext from "../contexts/articles_contexts";
 
 const Filter = () => {
   const dispatch = useDispatch();
-  const { searchValue, filterButtonValue } = useContext(ArticlesContext);
+  const { searchValue, setSearchValue, filterButtonValue } =
+    useContext(ArticlesContext);
 
   useEffect(() => {
     let query = "all";
@@ -19,7 +21,10 @@ const Filter = () => {
       query = filterButtonValue;
     }
     dispatch(fetchArticles(query));
-  }, [dispatch, searchValue, filterButtonValue]);
+    // dispatch(fetchNewYorkTimesArticles(query));
+
+    setSearchValue("");
+  }, [dispatch, searchValue, filterButtonValue, setSearchValue]);
 
   return (
     <FilterContainer className="container">

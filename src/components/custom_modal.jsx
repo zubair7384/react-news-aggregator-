@@ -6,6 +6,7 @@ const CustomModal = ({
   isVisible,
   title,
   content,
+  description,
   imageUrl,
   onOk,
   onCancel,
@@ -21,6 +22,7 @@ const CustomModal = ({
       <StyledContent>
         <h2>{title}</h2>
         <img src={imageUrl} alt={title} style={{ width: "100%" }} />
+        <p>{description}</p>
         <p>{content}</p>
       </StyledContent>
     </StyledModal>
@@ -35,6 +37,9 @@ const StyledModal = styled(Modal)`
     width: 90%;
     margin: 0 auto;
   }
+  @media (max-width: 600px) {
+    width: 90% !important;
+  }
 `;
 const StyledContent = styled.div`
   h2 {
@@ -47,5 +52,8 @@ const StyledContent = styled.div`
     margin: 0 auto;
     text-align: center;
     padding: 1rem 0 2rem 0;
+    @media (max-width: 600px) {
+      width: 100% !important;
+    }
   }
 `;

@@ -11,7 +11,7 @@ const Header = () => {
     <StyledHeaderWrapper isHome={isHome}>
       <StyledNav className="container flex-between">
         <StyledLogo isHome={isHome}>
-          <Link to="/">The News</Link>
+          <Link to="/">TNA</Link>
         </StyledLogo>
         {!isHome && <Search />}
         <StyledList isHome={isHome}>
@@ -23,12 +23,14 @@ const Header = () => {
             },
             {
               key: "2",
-              name: "More",
-              link: "/search",
+              name: isHome ? "More" : "Home",
+              link: isHome ? "/search" : "/",
             },
           ].map((item) => (
             <StyledLink isHome={isHome} key={item.key}>
-              <Link to={item.link}>{item.name}</Link>
+              <Link className={`link-${item.key}`} to={item.link}>
+                {item.name}
+              </Link>
             </StyledLink>
           ))}
         </StyledList>
@@ -69,6 +71,10 @@ const StyledHeaderWrapper = styled.div`
     // background-repeat: no-repeat;
     z-index: -1;
   }
+
+  @media (max-width: 500px) {
+    height: ${(props) => (props.isHome ? "350px" : "80px")};
+  }
 `;
 const StyledLogo = styled.div`
   color: #fff;
@@ -77,9 +83,15 @@ const StyledLogo = styled.div`
   a {
     color: ${(props) => (props.isHome ? `#fff` : "#000")};
   }
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
 `;
 const StyledNav = styled.div`
   padding: 12px 0;
+  @media (max-width: 768px) {
+    padding: 18px 0;
+  }
 `;
 const StyledList = styled.ul`
   display: flex;
@@ -92,6 +104,11 @@ const StyledLink = styled.li`
   a {
     color: ${(props) => (props.isHome ? "#fff" : "#000")};
   }
+  .link-1 {
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
 `;
 const SearchWrapper = styled.div`
   width: 45%;
@@ -101,6 +118,19 @@ const SearchWrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin: 0 auto;
+  @media (max-width: 1600px) {
+    width: 55%;
+  }
+  @media (max-width: 1300px) {
+    width: 60%;
+  }
+  @media (max-width: 768px) {
+    width: 70%;
+  }
+  @media (max-width: 500px) {
+    width: 90%;
+    height: 300px;
+  }
 `;
 const MainTitle = styled.h1`
   width: 100%;
@@ -109,4 +139,15 @@ const MainTitle = styled.h1`
   font-weight: 500;
   line-height: 50px;
   margin-bottom: 1.5rem;
+  @media (max-width: 1300px) {
+    font-size: 38px;
+  }
+  @media (max-width: 768px) {
+    font-size: 30px;
+    line-height: 30px;
+  }
+  @media (max-width: 500px) {
+    font-size: 26px;
+    line-height: 26px;
+  }
 `;

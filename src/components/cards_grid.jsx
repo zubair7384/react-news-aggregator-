@@ -32,7 +32,7 @@ const CardsGrid = ({ title }) => {
           ? Array.from({ length: placeholderCount }, (_, index) => (
               <Card
                 key={index}
-                style={{ width: 300, marginTop: 16 }}
+                style={{ width: "100%", marginTop: 16 }}
                 loading={true}
               />
             ))
@@ -53,7 +53,8 @@ const CardsGrid = ({ title }) => {
         isVisible={visible}
         title={modalContent.title}
         imageUrl={modalContent.urlToImage}
-        content={modalContent.content || modalContent.description}
+        content={modalContent.content}
+        description={modalContent.description}
         onOk={handleOk}
         onCancel={handleCancel}
       />

@@ -125,7 +125,7 @@ const StyledButtonsWrapper = styled.div`
     box-shadow: none;
     transition: background-color 0.3s, color 0.3s;
     height: 44px;
-    padding: 4px 20px;
+    padding: 4px 28px;
     font-weight: 600;
   }
 
