@@ -8,7 +8,7 @@ html,
 body {
   width: 100%;
   min-height: 100%;
-  font-family: "Arial", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 body {
@@ -42,7 +42,9 @@ a:hover {
   margin: auto;
   max-width: 1300px;
 }
-
+.ant-modal-mask {
+  background: rgb(0 0 0 / 84%) !important;
+}
 /* Flexbox utility */
 .flex-between {
   display: flex;

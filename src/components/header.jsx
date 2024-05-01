@@ -18,7 +18,7 @@ const Header = () => {
           {[
             {
               key: "1",
-              name: "Categories",
+              name: "All Filters",
               link: "/search",
             },
             {
@@ -79,7 +79,7 @@ const StyledLogo = styled.div`
   }
 `;
 const StyledNav = styled.div`
-  padding: 1rem 0;
+  padding: 12px 0;
 `;
 const StyledList = styled.ul`
   display: flex;
@@ -104,7 +104,7 @@ const SearchWrapper = styled.div`
 `;
 const MainTitle = styled.h1`
   width: 100%;
-  font-size: 50px;
+  font-size: 48px;
   color: #fff;
   font-weight: 500;
   line-height: 50px;

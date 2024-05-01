@@ -22,7 +22,7 @@ const newsApiArticlesReducer = createSlice({
   name: "articles",
   initialState: {
     items: [],
-    status: "idle", // 'idle' | 'loading' | 'succeeded' | 'failed'
+    status: "", // 'idle' | 'loading' | 'succeeded' | 'failed'
     error: null,
   },
   reducers: {},

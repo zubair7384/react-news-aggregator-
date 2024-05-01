@@ -1,16 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Input } from "antd";
-import { useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import styled from "styled-components";
+import ArticlesContext from "../contexts/articles_contexts";
 
 const { Search } = Input;
 
 const CustomSearch = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const isHome = location.pathname === "/";
+  const { setSearchValue, setFilterButtonValue } = useContext(ArticlesContext);
 
   const handleSearch = (value) => {
-    console.log(value);
+    setSearchValue(value);
+    setFilterButtonValue(value);
+    navigate("/search");
   };
 
   return (
@@ -42,6 +47,7 @@ const StyledSearch = styled(Search)`
     }
   }
 `;
+
 const SearchWrapper = styled.div`
   width: ${(props) => (props.isHome ? "100%" : "50%")};
 `;
