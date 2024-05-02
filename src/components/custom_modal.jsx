@@ -22,7 +22,7 @@ const CustomModal = ({
       footer={null}
     >
       <StyledContent>
-        <a className="title-link" href={url} target="_blank">
+        <a className="title-link" href={url} target="_blank" rel="noreferrer">
           <h2>{title}</h2>
         </a>
         <img
@@ -34,7 +34,7 @@ const CustomModal = ({
         <p>
           {content}
           &nbsp;{" "}
-          <a href={url} target="_blank">
+          <a href={url} target="_blank" rel="noreferrer">
             Read more...
           </a>
         </p>
