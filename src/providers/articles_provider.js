@@ -1,4 +1,3 @@
-// src/providers/UserProvider.js
 import React, { useState } from "react";
 import ArticlesContext from "../contexts/articles_contexts";
 
