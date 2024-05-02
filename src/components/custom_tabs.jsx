@@ -1,30 +1,39 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Tabs } from "antd";
 import CardsGrid from "./cards_grid";
 import styled from "styled-components";
+import ArticlesContext from "../contexts/articles_contexts";
 
 const CustomTabs = () => {
+  const { setApiName, apiName } = useContext(ArticlesContext);
   const items = [
     {
-      key: "1",
-      label: "NewsAPI",
+      key: "newsApi",
+      label: "News Api",
       children: <CardsGrid title="NewAPI" />,
     },
     {
-      key: "2",
-      label: "OpenNews",
-      children: <CardsGrid title="OpenNews" />,
+      key: "newYorkTimes",
+      label: "New York Times",
+      children: <CardsGrid title="NewYorkTimes" />,
     },
     {
-      key: "3",
+      key: "newsCred",
       label: "NewsCred",
       children: <CardsGrid title="NewsCred" />,
     },
   ];
   const onChange = (key) => {
-    console.log(key);
+    setApiName(key);
   };
-  return <StyledTabs onChange={onChange} type="card" items={items} />;
+  return (
+    <StyledTabs
+      defaultActiveKey={apiName}
+      onChange={onChange}
+      type="card"
+      items={items}
+    />
+  );
 };
 export default CustomTabs;
 

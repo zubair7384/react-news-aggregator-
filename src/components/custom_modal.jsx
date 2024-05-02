@@ -1,11 +1,13 @@
 import React from "react";
 import { Modal } from "antd";
 import styled from "styled-components";
+import NewsImage from "../assets/news-image.jpg";
 
 const CustomModal = ({
   isVisible,
   title,
   content,
+  url,
   description,
   imageUrl,
   onOk,
@@ -20,10 +22,22 @@ const CustomModal = ({
       footer={null}
     >
       <StyledContent>
-        <h2>{title}</h2>
-        <img src={imageUrl} alt={title} style={{ width: "100%" }} />
+        <a className="title-link" href={url} target="_blank">
+          <h2>{title}</h2>
+        </a>
+        <img
+          src={imageUrl || NewsImage}
+          alt={title}
+          style={{ width: "100%" }}
+        />
         <p>{description}</p>
-        <p>{content}</p>
+        <p>
+          {content}
+          &nbsp;{" "}
+          <a href={url} target="_blank">
+            Read more...
+          </a>
+        </p>
       </StyledContent>
     </StyledModal>
   );
@@ -42,9 +56,12 @@ const StyledModal = styled(Modal)`
   }
 `;
 const StyledContent = styled.div`
-  h2 {
-    font-size: 20px;
-    font-weight: 600;
+  .title-link {
+    color: #000;
+    h2 {
+      font-size: 20px;
+      font-weight: 600;
+    }
   }
   img {
     display: flex;

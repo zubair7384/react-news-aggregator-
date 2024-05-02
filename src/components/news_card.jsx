@@ -1,23 +1,29 @@
 import React from "react";
-import { Card, Tooltip } from "antd";
+import { Card, Tooltip, Divider } from "antd";
 import styled from "styled-components";
+import NewsImage from "../assets/news-image.jpg";
+import Item from "antd/es/list/Item";
 
 const { Meta } = Card;
 
-const NewsCard = ({ url, title, description, onClick }) => {
+const NewsCard = ({
+  imageUrl,
+  title,
+  description,
+  onClick,
+  url,
+  sourceName,
+}) => {
   return (
     <StyledCard
       hoverable
-      cover={<img alt="example" src={url} />}
+      cover={<img alt="example" src={imageUrl || NewsImage} />}
       onClick={onClick}
     >
+      <p className="source">{sourceName}</p>
       <Meta
-        title={title}
-        description={
-          <Tooltip title={description}>
-            <EllipsisText>{description}</EllipsisText>
-          </Tooltip>
-        }
+        title={<Tooltip title={title}>{title}</Tooltip>}
+        description={<EllipsisText>{description}</EllipsisText>}
       />
     </StyledCard>
   );
@@ -32,6 +38,12 @@ const StyledCard = styled(Card)`
   .ant-card-cover {
     max-height: 200px;
     overflow: hidden;
+  }
+  .source {
+    margin-bottom: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #2c343e;
   }
 `;
 

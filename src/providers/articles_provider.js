@@ -5,6 +5,7 @@ import ArticlesContext from "../contexts/articles_contexts";
 const ArticlesProvider = ({ children }) => {
   const [searchValue, setSearchValue] = useState("");
   const [filterButtonValue, setFilterButtonValue] = useState("All");
+  const [apiName, setApiName] = useState("newYorkTimes");
 
   return (
     <ArticlesContext.Provider
@@ -13,6 +14,8 @@ const ArticlesProvider = ({ children }) => {
         setSearchValue,
         filterButtonValue,
         setFilterButtonValue,
+        apiName,
+        setApiName,
       }}
     >
       {children}

@@ -4,10 +4,11 @@ import { Select } from "antd";
 import ArticlesContext from "../contexts/articles_contexts";
 
 const FilterHeader = ({ filterButtonValue }) => {
-  const { setFilterButtonValue } = useContext(ArticlesContext);
+  const { setFilterButtonValue, setApiName, apiName } =
+    useContext(ArticlesContext);
 
   const handleApiChange = (value) => {
-    console.log(`selected ${value}`);
+    setApiName(value);
   };
   const handleTypeChange = (value) => {
     setFilterButtonValue(value);
@@ -18,12 +19,12 @@ const FilterHeader = ({ filterButtonValue }) => {
       <h2>{filterButtonValue}</h2>
       <div className="buttons-wrapper">
         <StyledSelect
-          defaultValue="newsApi"
+          defaultValue={apiName}
           style={{ width: 120 }}
           onChange={handleApiChange}
           options={[
             { value: "newsApi", label: "News Api" },
-            { value: "openNews", label: "Open News" },
+            { value: "newYorkTimes", label: "New York Times" },
             { value: "newsCred", label: "News Cred" },
           ]}
         />
