@@ -14,7 +14,7 @@ const CardsGrid = ({ title }) => {
   // const nytStatus = useSelector((state) => state.newYorkTimesArticles.status);
 
   const status = useSelector((state) => state.articles.status);
-  const { searchValue, apiName } = useContext(ArticlesContext);
+  // const { searchValue, apiName } = useContext(ArticlesContext);
 
   const placeholderCount = 20;
   const [visible, setVisible] = useState(false);
