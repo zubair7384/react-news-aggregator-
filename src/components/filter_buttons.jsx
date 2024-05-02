@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState, useEffect } from "react";
+import React, { useContext, useRef } from "react";
 import styled from "styled-components";
 import { CaretRightOutlined, CaretLeftOutlined } from "@ant-design/icons";
 import { Button } from "antd";
