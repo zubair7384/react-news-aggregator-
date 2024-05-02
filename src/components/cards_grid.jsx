@@ -1,10 +1,10 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
 import NewsCard from "./news_card";
 import { Card } from "antd";
 import CustomModal from "../components/custom_modal";
-import ArticlesContext from "../contexts/articles_contexts";
+// import ArticlesContext from "../contexts/articles_contexts";
 
 const CardsGrid = ({ title }) => {
   const articles = useSelector((state) => state.articles.items);
