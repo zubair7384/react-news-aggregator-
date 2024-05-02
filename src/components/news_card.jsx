@@ -1,8 +1,7 @@
 import React from "react";
-import { Card, Tooltip, Divider } from "antd";
+import { Card, Tooltip } from "antd";
 import styled from "styled-components";
 import NewsImage from "../assets/news-image.jpg";
-import Item from "antd/es/list/Item";
 
 const { Meta } = Card;
 
