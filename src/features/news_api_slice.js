@@ -20,7 +20,7 @@ export const fetchArticles = createAsyncThunk(
 export const getArticlesByCategory = createAsyncThunk(
   "articles/getArticlesByCategory",
   async (query, { rejectWithValue }) => {
-    const url = `https://newsapi.org/v2/top-headlines/sources?page=2?category=${query}apiKey=${NEWS_API_KEY}`;
+    const url = `https://newsapi.org/v2/top-headlines/sources?category=${query}&apiKey=${NEWS_API_KEY}`;
 
     try {
       const response = await fetch(url);

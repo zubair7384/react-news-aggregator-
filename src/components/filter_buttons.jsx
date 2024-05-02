@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useRef, useState, useEffect } from "react";
 import styled from "styled-components";
 import { CaretRightOutlined, CaretLeftOutlined } from "@ant-design/icons";
 import { Button } from "antd";
@@ -8,6 +8,31 @@ const FilterButtons = () => {
   const { filterButtonValue, setFilterButtonValue } =
     useContext(ArticlesContext);
   const scrollRef = useRef(null);
+  const [isAtStart, setIsAtStart] = useState(true);
+  const [isAtEnd, setIsAtEnd] = useState(false);
+
+  const checkScrollPosition = () => {
+    const element = scrollRef.current;
+    if (element) {
+      const isStart = element.scrollLeft === 0;
+      const isEnd =
+        element.scrollWidth === element.scrollLeft + element.clientWidth;
+      setIsAtStart(isStart);
+      setIsAtEnd(isEnd);
+    }
+  };
+
+  useEffect(() => {
+    const element = scrollRef.current;
+    if (element) {
+      element.addEventListener("scroll", checkScrollPosition);
+    }
+    return () => {
+      if (element) {
+        element.removeEventListener("scroll", checkScrollPosition);
+      }
+    };
+  }, []);
 
   const scrollRight = () => {
     if (scrollRef.current) {
@@ -28,13 +53,13 @@ const FilterButtons = () => {
       <div className="scrollable-buttons" ref={scrollRef}>
         {[
           { key: 0, title: "All" },
-          { key: 1, title: "Politics" },
-          { key: 2, title: "International news" },
-          { key: 3, title: "Crime news" },
-          { key: 4, title: "Sports" },
-          { key: 5, title: "Health" },
-          { key: 6, title: "Science" },
-          { key: 7, title: "Entertainment journalism" },
+          { key: 1, title: "Business" },
+          { key: 2, title: "Entertainment" },
+          { key: 3, title: "General" },
+          { key: 4, title: "Health" },
+          { key: 5, title: "Science" },
+          { key: 6, title: "Sports" },
+          { key: 7, title: "Technology" },
           { key: 8, title: "Press releases" },
         ].map((item) => (
           <Button

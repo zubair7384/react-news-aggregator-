@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal } from "antd";
+import { Divider, Modal } from "antd";
 import styled from "styled-components";
 import NewsImage from "../assets/news-image.jpg";
 
@@ -25,11 +25,13 @@ const CustomModal = ({
         <a className="title-link" href={url} target="_blank" rel="noreferrer">
           <h2>{title}</h2>
         </a>
+        <Divider />
         <img
           src={imageUrl || NewsImage}
           alt={title}
           style={{ width: "100%" }}
         />
+        <Divider />
         <p>{description}</p>
         <p>
           {content}

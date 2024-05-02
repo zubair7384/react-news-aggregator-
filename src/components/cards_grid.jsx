@@ -4,31 +4,16 @@ import { useSelector } from "react-redux";
 import NewsCard from "./news_card";
 import { Card } from "antd";
 import CustomModal from "../components/custom_modal";
-// import ArticlesContext from "../contexts/articles_contexts";
 
 const CardsGrid = ({ title }) => {
   const articles = useSelector((state) => state.articles.items);
-  // const nytArticles = useSelector(
-  //   (state) => state.newYorkTimesArticles.newYorkTimesData
-  // );
-  // const nytStatus = useSelector((state) => state.newYorkTimesArticles.status);
 
   const status = useSelector((state) => state.articles.status);
-  // const { searchValue, apiName } = useContext(ArticlesContext);
 
   const placeholderCount = 20;
   const [visible, setVisible] = useState(false);
   const [modalContent, setModalContent] = useState({});
 
-  // const myNytArticlesList = nytArticles.map((item) => ({
-  //   url: item.web_url,
-  //   urlToImage: item.multimedia[0]?.url
-  //     ? `https://static01.nyt.com/${item.multimedia[0]?.url}`
-  //     : "",
-  //   title: item.headline.main,
-  //   description: item.abstract,
-  //   source: { name: item.source },
-  // }));
   const showModal = (item) => {
     setModalContent(item);
     setVisible(true);
@@ -44,10 +29,11 @@ const CardsGrid = ({ title }) => {
 
   return (
     <GridContainer>
+      <h2>{title}</h2>
       <StyledGrid>
         {status === "loading"
           ? Array.from({ length: placeholderCount }, (_, index) => (
-              <Card
+              <StyledCard
                 key={index}
                 style={{ width: "100%", marginTop: 16 }}
                 loading={true}
@@ -84,7 +70,20 @@ const CardsGrid = ({ title }) => {
 
 export default CardsGrid;
 
-const GridContainer = styled.div``;
+const GridContainer = styled.div`
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 0;
+  color: #2c343e;
+  fill: #2c343e;
+  border-bottom: 4px solid #2c343e;
+  line-height: 53px;
+  text-transform: capitalize;
+  @media (max-width: 768px) {
+    font-size: 28px;
+    line-height: 43px;
+  }
+`;
 const StyledGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -94,4 +93,10 @@ const StyledGrid = styled.div`
   @media (max-width: 768px) {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
+`;
+const StyledCard = styled(Card)`
+  width: 100%;
+  height: 300px;
+  padding-top: 7rem;
+  margin-top: 16px;
 `;

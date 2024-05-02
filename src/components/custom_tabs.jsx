@@ -10,17 +10,17 @@ const CustomTabs = () => {
     {
       key: "newsApi",
       label: "News Api",
-      children: <CardsGrid title="NewAPI" />,
+      children: <CardsGrid title="New API" />,
     },
     {
       key: "newYorkTimes",
       label: "New York Times",
-      children: <CardsGrid title="NewYorkTimes" />,
+      children: <CardsGrid title="New York Times" />,
     },
     {
       key: "newsCred",
       label: "NewsCred",
-      children: <CardsGrid title="NewsCred" />,
+      children: <CardsGrid title="News Cred" />,
     },
   ];
   const onChange = (key) => {

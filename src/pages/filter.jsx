@@ -6,7 +6,6 @@ import { useDispatch } from "react-redux";
 import {
   fetchArticles,
   fetchNewYorkTimesArticles,
-  getArticlesByCategory,
 } from "../features/news_api_slice";
 import styled from "styled-components";
 import ArticlesContext from "../contexts/articles_contexts";
@@ -15,15 +14,16 @@ const Filter = () => {
   const dispatch = useDispatch();
   const { searchValue, setSearchValue, filterButtonValue, apiName } =
     useContext(ArticlesContext);
-  console.log(searchValue, "searchValue");
+
   useEffect(() => {
     let query = "all";
+    if (searchValue.trim()) {
+      query = searchValue;
+    } else if (filterButtonValue) {
+      query = filterButtonValue;
+    }
     if (apiName === "newsApi") {
-      if (searchValue) {
-        dispatch(getArticlesByCategory(searchValue));
-      } else if (filterButtonValue) {
-        dispatch(fetchArticles(filterButtonValue));
-      }
+      dispatch(fetchArticles(query));
     } else {
       dispatch(fetchNewYorkTimesArticles(query));
     }

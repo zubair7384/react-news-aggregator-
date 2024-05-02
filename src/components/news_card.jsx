@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, Tooltip } from "antd";
 import styled from "styled-components";
 import NewsImage from "../assets/news-image.jpg";
@@ -13,10 +13,20 @@ const NewsCard = ({
   url,
   sourceName,
 }) => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  const handleImageLoad = () => setIsLoading(false);
   return (
     <StyledCard
       hoverable
-      cover={<img alt="example" src={imageUrl || NewsImage} />}
+      cover={
+        <StyledImage
+          style={{ visibility: isLoading ? "hidden" : "visible" }}
+          alt="new-image"
+          src={imageUrl || NewsImage}
+          onLoad={handleImageLoad}
+        />
+      }
       onClick={onClick}
     >
       <p className="source">{sourceName}</p>
@@ -55,3 +65,4 @@ const EllipsisText = styled.div`
   max-height: 4.5em;
   line-height: 1.5em;
 `;
+const StyledImage = styled.img``;
