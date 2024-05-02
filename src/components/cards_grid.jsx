@@ -76,7 +76,6 @@ const GridContainer = styled.div`
   margin-bottom: 0;
   color: #2c343e;
   fill: #2c343e;
-  border-bottom: 4px solid #2c343e;
   line-height: 53px;
   text-transform: capitalize;
   @media (max-width: 768px) {

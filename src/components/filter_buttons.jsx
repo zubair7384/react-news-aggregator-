@@ -8,31 +8,6 @@ const FilterButtons = () => {
   const { filterButtonValue, setFilterButtonValue } =
     useContext(ArticlesContext);
   const scrollRef = useRef(null);
-  const [isAtStart, setIsAtStart] = useState(true);
-  const [isAtEnd, setIsAtEnd] = useState(false);
-
-  const checkScrollPosition = () => {
-    const element = scrollRef.current;
-    if (element) {
-      const isStart = element.scrollLeft === 0;
-      const isEnd =
-        element.scrollWidth === element.scrollLeft + element.clientWidth;
-      setIsAtStart(isStart);
-      setIsAtEnd(isEnd);
-    }
-  };
-
-  useEffect(() => {
-    const element = scrollRef.current;
-    if (element) {
-      element.addEventListener("scroll", checkScrollPosition);
-    }
-    return () => {
-      if (element) {
-        element.removeEventListener("scroll", checkScrollPosition);
-      }
-    };
-  }, []);
 
   const scrollRight = () => {
     if (scrollRef.current) {
