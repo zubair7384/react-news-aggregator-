@@ -18,9 +18,9 @@ const CustomTabs = () => {
       children: <CardsGrid title="New York Times" />,
     },
     {
-      key: "newsCred",
-      label: "NewsCred",
-      children: <CardsGrid title="News Cred" />,
+      key: "gNews",
+      label: "Google News",
+      children: <CardsGrid title="Google News" />,
     },
   ];
   const onChange = (key) => {

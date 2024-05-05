@@ -1,6 +1,10 @@
 // src/features/articles/articlesSlice.js
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { NEWS_API_KEY, NEW_YORK_TIMES_API_KEY } from "../api-consts";
+import {
+  NEWS_API_KEY,
+  NEW_YORK_TIMES_API_KEY,
+  GOOGLE_NEWS_API_KEY,
+} from "../api-consts";
 
 export const fetchArticles = createAsyncThunk(
   "articles/fetchArticles",
@@ -43,6 +47,21 @@ export const fetchNewYorkTimesArticles = createAsyncThunk(
       if (!response.ok) throw new Error("Network response was not ok");
       const data = await response.json();
       return data.response.docs;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+export const fetchGoogleNewsArticles = createAsyncThunk(
+  "articles/fetchGoogleNewsArticles",
+  async (query, { rejectWithValue }) => {
+    const url = `https://gnews.io/api/v4/search?q=${query}&lang=en&country=us&max=20&apikey=${GOOGLE_NEWS_API_KEY}`;
+
+    try {
+      const response = await fetch(url);
+      if (!response.ok) throw new Error("Network response was not ok");
+      const data = await response.json();
+      return data.articles;
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -99,7 +118,7 @@ const newsApiArticlesReducer = createSlice({
       })
       .addCase(fetchNewYorkTimesArticles.fulfilled, (state, action) => {
         state.status = "succeeded";
-        const myNytArticlesList = action.payload.map((item) => ({
+        const myNytArticlesList = action.payload?.map((item) => ({
           key: item.index,
           url: item.web_url,
           urlToImage: item.multimedia[0]?.url
@@ -112,6 +131,25 @@ const newsApiArticlesReducer = createSlice({
         state.items = myNytArticlesList;
       })
       .addCase(fetchNewYorkTimesArticles.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.payload;
+      })
+      .addCase(fetchGoogleNewsArticles.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(fetchGoogleNewsArticles.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        const myNytArticlesList = action.payload?.map((item) => ({
+          key: item.index,
+          url: item.url,
+          urlToImage: item.image,
+          title: item.title,
+          description: item.description,
+          source: item.source.name,
+        }));
+        state.items = myNytArticlesList;
+      })
+      .addCase(fetchGoogleNewsArticles.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.payload;
       });

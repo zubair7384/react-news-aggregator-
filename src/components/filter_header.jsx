@@ -25,7 +25,7 @@ const FilterHeader = ({ filterButtonValue }) => {
           options={[
             { value: "newsApi", label: "News Api" },
             { value: "newYorkTimes", label: "New York Times" },
-            { value: "newsCred", label: "News Cred" },
+            { value: "gNews", label: "Google News" },
           ]}
         />
         <StyledSelect

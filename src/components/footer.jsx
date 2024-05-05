@@ -12,6 +12,8 @@ const Footer = () => {
         <StyledLogo>
           <Link to="/">TNA</Link>
         </StyledLogo>
+        <p>© 2024 TNA. All rights reserved | Privacy Policy</p>
+
         <StyledList>
           {[
             {
@@ -33,8 +35,6 @@ const Footer = () => {
           ))}
         </StyledList>
       </div>
-      <Divider style={{ background: "#fff", margin: "12px 0" }} />
-      <p>© 2024 TNA. All rights reserved | Privacy Policy</p>
     </StyledFooterWrapper>
   );
 };
@@ -42,13 +42,12 @@ const Footer = () => {
 export default Footer;
 
 const StyledFooterWrapper = styled.div`
-  height: 120px;
   background: #000;
   .footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 12px;
+    padding: 15px 0;
   }
   p {
     text-align: center;
@@ -56,6 +55,12 @@ const StyledFooterWrapper = styled.div`
     font-size: 12px;
     font-weight: 600;
     line-height: 30px;
+    margin: 0;
+    @media (max-width: 420px) {
+      font-size: 10px;
+      line-height: 18px;
+    }
+  }
 `;
 
 const StyledLogo = styled.div`
@@ -68,6 +73,9 @@ const StyledLogo = styled.div`
   @media (max-width: 768px) {
     font-size: 20px;
   }
+  @media (max-width: 420px) {
+    font-size: 16px;
+  }
 `;
 const StyledList = styled.ul`
   display: flex;
@@ -75,6 +83,9 @@ const StyledList = styled.ul`
   list-style-type: none;
   font-size: 16px;
   font-weight: 600;
+  @media (max-width: 420px) {
+    font-size: 14px;
+  }
 `;
 const StyledLink = styled.li`
   a {

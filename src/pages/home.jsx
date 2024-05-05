@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import {
   fetchArticles,
   fetchNewYorkTimesArticles,
+  fetchGoogleNewsArticles,
 } from "../features/news_api_slice";
 import styled from "styled-components";
 import { useLocation } from "react-router-dom";
@@ -18,8 +19,10 @@ const Home = () => {
     const query = searchValue ? searchValue.trim() : "latest and trending";
     if (apiName === "newsApi") {
       dispatch(fetchArticles(query));
-    } else {
+    } else if (apiName === "newYorkTimes") {
       dispatch(fetchNewYorkTimesArticles(query));
+    } else {
+      dispatch(fetchGoogleNewsArticles(query));
     }
   }, [dispatch, searchValue, location.pathname, apiName]);
 
