@@ -47,6 +47,9 @@ const StyledFooterWrapper = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: 15px 0;
+    @media (max-width: 420px) {
+      justify-content: center;
+    }
   }
   p {
     text-align: center;
@@ -73,7 +76,7 @@ const StyledLogo = styled.div`
     font-size: 20px;
   }
   @media (max-width: 420px) {
-    font-size: 16px;
+    display: none;
   }
 `;
 const StyledList = styled.ul`
@@ -83,7 +86,7 @@ const StyledList = styled.ul`
   font-size: 16px;
   font-weight: 600;
   @media (max-width: 420px) {
-    font-size: 14px;
+    display: none;
   }
 `;
 const StyledLink = styled.li`

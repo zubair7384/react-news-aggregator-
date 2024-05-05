@@ -82,6 +82,13 @@ const GridContainer = styled.div`
     font-size: 28px;
     line-height: 43px;
   }
+  h2 {
+    @media (max-width: 768px) {
+      font-size: 22px;
+      line-height: 28px;
+      font-weight: 500;
+    }
+  }
 `;
 const StyledGrid = styled.div`
   display: grid;

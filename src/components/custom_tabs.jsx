@@ -52,6 +52,9 @@ const StyledTabs = styled(Tabs)`
       display: flex;
       justify-content: center;
       gap: 1rem;
+      @media (max-width: 420px) {
+        gap: 4px;
+      }
     }
   }
 
@@ -63,6 +66,9 @@ const StyledTabs = styled(Tabs)`
       font-size: 16px;
       font-weight: 600;
       color: #0000009e !important;
+      @media (max-width: 420px) {
+        font-size: 10px;
+      }
     }
   }
   .ant-tabs-tab.ant-tabs-tab-active {
