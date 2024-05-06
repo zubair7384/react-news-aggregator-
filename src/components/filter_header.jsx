@@ -20,7 +20,7 @@ const FilterHeader = ({ filterButtonValue }) => {
       <div className="buttons-wrapper">
         <StyledSelect
           defaultValue={apiName}
-          style={{ width: 120 }}
+          style={{ width: 150 }}
           onChange={handleApiChange}
           options={[
             { value: "newsApi", label: "News Api" },
@@ -30,7 +30,7 @@ const FilterHeader = ({ filterButtonValue }) => {
         />
         <StyledSelect
           defaultValue="popular"
-          style={{ width: 120 }}
+          style={{ width: 150 }}
           onChange={handleTypeChange}
           options={[
             { value: "Popular", label: "Popular" },
